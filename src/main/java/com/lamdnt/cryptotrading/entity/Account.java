@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+import java.util.List;
+
 @Entity
 @Data
 @Accessors(chain = true)
@@ -18,6 +20,10 @@ public class Account extends Auditing<Long>{
 
     @Column(name = "username")
     private String username;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private List<Wallet> wallets;
 
     @Override
     public Long getId() {
