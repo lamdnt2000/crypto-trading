@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @Data
@@ -37,5 +38,13 @@ public class TradingPair extends Auditing<Long>{
     @Override
     public Long getId() {
         return id;
+    }
+
+    public BigDecimal getAskAmount(BigDecimal amount) {
+        return amount.divide(askPrice, 10, RoundingMode.HALF_UP);
+    }
+
+    public BigDecimal getBidAmount(BigDecimal amount) {
+        return amount.multiply(bidPrice);
     }
 }

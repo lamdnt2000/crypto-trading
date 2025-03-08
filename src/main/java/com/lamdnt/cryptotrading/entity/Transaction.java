@@ -35,8 +35,19 @@ public class Transaction extends Auditing<Long>{
     @Column(name = "quantity")
     private BigDecimal quantity;
 
+    @Column(name = "quote_quantity")
+    private BigDecimal quoteQuantity;
+
     @Override
     public Long getId() {
         return id;
+    }
+
+    public boolean isBuy() {
+        return type == TransactionType.ASK;
+    }
+
+    public boolean isSell() {
+        return type == TransactionType.BID;
     }
 }

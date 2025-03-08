@@ -32,4 +32,8 @@ public class Wallet extends Auditing<Long>{
     public Long getId() {
         return id;
     }
+
+    public boolean isSufficient(BigDecimal amount) {
+        return balance.compareTo(amount) >= 0;
+    }
 }

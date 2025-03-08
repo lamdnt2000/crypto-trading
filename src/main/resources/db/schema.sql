@@ -56,6 +56,7 @@ CREATE TABLE transaction (
         trading_pair_id BIGINT NOT NULL,
         price DECIMAL(18, 8) NOT NULL,
         quantity DECIMAL(18, 8) NOT NULL,
+        quote_quantity DECIMAL(18, 8) NOT NULL,
         created_at TIMESTAMP,
         updated_at TIMESTAMP,
         created_by VARCHAR(50),
