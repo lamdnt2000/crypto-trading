@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @Accessors(chain = true)
-@Table(name = "currency")
+@Table(name = "transaction")
 @NoArgsConstructor
 public class Transaction extends Auditing<Long>{
     @Id
