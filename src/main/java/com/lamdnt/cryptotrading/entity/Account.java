@@ -9,9 +9,9 @@ import lombok.experimental.Accessors;
 @Entity
 @Data
 @Accessors(chain = true)
-@Table(name = "user")
+@Table(name = "account")
 @NoArgsConstructor
-public class User extends Auditing<Long>{
+public class Account extends Auditing<Long>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
