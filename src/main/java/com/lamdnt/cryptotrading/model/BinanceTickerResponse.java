@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
-public class BinanceBookTickerResponse implements Serializable {
+public class BinanceTickerResponse implements Serializable {
     private String symbol;
     private BigDecimal bidPrice;
     private BigDecimal askPrice;

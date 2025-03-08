@@ -43,6 +43,7 @@ CREATE TABLE trading_pair (
                               updated_at TIMESTAMP,
                               created_by VARCHAR(50),
                               updated_by VARCHAR(50),
+                              symbol VARCHAR(20) NOT NULL,
                               FOREIGN KEY (base_currency_id) REFERENCES currency(id),
                               FOREIGN KEY (quote_currency_id) REFERENCES currency(id)
 );

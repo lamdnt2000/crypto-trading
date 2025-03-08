@@ -1,6 +1,6 @@
 package com.lamdnt.cryptotrading.connector;
 
-import com.lamdnt.cryptotrading.model.BinanceBookTickerResponse;
+import com.lamdnt.cryptotrading.model.BinanceTickerResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ public interface BinanceHttpClient {
             value = "ticker/bookTicker",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    List<BinanceBookTickerResponse> getBookTicker(
+    List<BinanceTickerResponse> getTickers(
             @RequestParam("symbols") String symbols
     );
 }

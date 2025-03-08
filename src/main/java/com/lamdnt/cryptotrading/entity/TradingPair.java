@@ -17,11 +17,11 @@ public class TradingPair extends Auditing<Long>{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "base_currency_id")
     private Currency baseCurrency;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "quote_currency_id")
     private Currency quoteCurrency;
 
@@ -30,6 +30,9 @@ public class TradingPair extends Auditing<Long>{
 
     @Column(name = "ask_price", nullable = false)
     private BigDecimal askPrice;
+
+    @Column(name = "symbol")
+    private String symbol;
 
     @Override
     public Long getId() {
