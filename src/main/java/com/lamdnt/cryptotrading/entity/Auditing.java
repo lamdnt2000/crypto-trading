@@ -14,20 +14,16 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @MappedSuperclass
-@JsonIgnoreProperties(
-        value = {"createdAt", "updatedAt", "createdBy", "updatedBy"},
-        allowGetters = true
-)
 public abstract class Auditing<T> implements Serializable {
     public abstract T getId();
 
     @Column(name = "created_at")
     @CreatedDate
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "updated_at")
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
     @Column(name = "created_by")
     private String createdBy;

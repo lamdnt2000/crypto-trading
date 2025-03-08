@@ -41,10 +41,10 @@ public class TransactionService {
                         if (usdtWallet.isSufficient(transactionRequest.getAmount())) {
                             Wallet wallet = Optional.ofNullable(walletMap.get(tradingPair.getBaseCurrency().getName()))
                                     .orElseGet(() -> new Wallet()
-                                            .setCurrency(new Currency().setName(tradingPair.getBaseCurrency().getName()))
+                                            .setCurrency(tradingPair.getBaseCurrency()))
                                             .setBalance(BigDecimal.ZERO)
-                                            .setAccount(account));
-                            wallet.setBalance(wallet.getBalance().add(transactionRequest.getAmount()));
+                                            .setAccount(account);
+                            wallet.setBalance(wallet.getBalance().add(tradingPair.getAskAmount(transactionRequest.getAmount())));
                             usdtWallet.setBalance(usdtWallet.getBalance().subtract(transactionRequest.getAmount()));
                             Transaction transaction = new Transaction()
                                     .setAccount(account)
@@ -53,7 +53,7 @@ public class TransactionService {
                                     .setQuantity(tradingPair.getAskAmount(transactionRequest.getAmount()))
                                     .setQuoteQuantity(transactionRequest.getAmount())
                                     .setType(TransactionType.ASK);
-                            accountRepository.save(account);
+                            walletRepository.saveAll(List.of(wallet, usdtWallet));
                             transactionRepository.save(transaction);
                         } else {
                             throw new RuntimeException("Insufficient balance");
