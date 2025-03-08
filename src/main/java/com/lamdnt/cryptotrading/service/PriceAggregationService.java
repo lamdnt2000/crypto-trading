@@ -48,11 +48,6 @@ public class PriceAggregationService {
                 .map(symbol -> {
                     BinanceTickerResponse binance = binancePrices.get(symbol);
                     HuobiTickerResponse.HuobiTicker huobi = huobiPrices.get(symbol);
-                    log.info("Aggregating price for symbol {}", symbol);
-                    log.info("Binance Ask: {}", binance.getAskPrice());
-                    log.info("Binance Bid: {}", binance.getBidPrice());
-                    log.info("Huobi Ask: {}", huobi.getAsk());
-                    log.info("Huobi Bid: {}", huobi.getBid());
 
                     if (binance == null && huobi == null) {
                         return null;
@@ -67,8 +62,7 @@ public class PriceAggregationService {
                             Optional.ofNullable(binance).map(BinanceTickerResponse::getBidPrice).orElse(null),
                             Optional.ofNullable(huobi).map(HuobiTickerResponse.HuobiTicker::getBid).orElse(null)
                     );
-                    log.info("Best Ask: {}", bestAsk);
-                    log.info("Best Bid: {}", bestBid);
+
                     return Map.entry(symbol, Pair.of(bestAsk, bestBid));
                 })
                 .filter(Objects::nonNull)
