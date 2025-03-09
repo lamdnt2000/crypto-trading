@@ -29,7 +29,8 @@ CREATE TABLE wallet (
      created_by VARCHAR(50),
      updated_by VARCHAR(50),
      FOREIGN KEY (account_id) REFERENCES account(id),
-     FOREIGN KEY (currency_id) REFERENCES currency(id)
+     FOREIGN KEY (currency_id) REFERENCES currency(id),
+     CONSTRAINT unique_account_currency UNIQUE (account_id, currency_id)
 );
 
 -- Init table trading pair
@@ -45,7 +46,8 @@ CREATE TABLE trading_pair (
                               updated_by VARCHAR(50),
                               symbol VARCHAR(20) NOT NULL,
                               FOREIGN KEY (base_currency_id) REFERENCES currency(id),
-                              FOREIGN KEY (quote_currency_id) REFERENCES currency(id)
+                              FOREIGN KEY (quote_currency_id) REFERENCES currency(id),
+                              CONSTRAINT unique_base_currency_quote_currency UNIQUE (base_currency_id, quote_currency_id)
 );
 
 -- Init table for transaction

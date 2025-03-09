@@ -4,10 +4,13 @@ import com.lamdnt.cryptotrading.entity.TransactionType;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.lang.NonNull;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class TransactionRequest implements Serializable {
   private TransactionType type;

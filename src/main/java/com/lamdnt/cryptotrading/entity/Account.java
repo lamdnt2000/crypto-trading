@@ -3,11 +3,14 @@ package com.lamdnt.cryptotrading.entity;
 import jakarta.persistence.*;
 import java.util.List;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Accessors(chain = true)
 @Table(name = "account")
 @NoArgsConstructor

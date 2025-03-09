@@ -1,4 +1,4 @@
-package com.lamdnt.cryptotrading.secheduler;
+package com.lamdnt.cryptotrading.scheduler;
 
 import com.lamdnt.cryptotrading.entity.TradingPair;
 import com.lamdnt.cryptotrading.service.PriceAggregationService;

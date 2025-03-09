@@ -4,11 +4,14 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Accessors(chain = true)
 @Table(name = "transaction")
 @NoArgsConstructor
