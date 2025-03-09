@@ -41,7 +41,6 @@ public class TransactionController {
   @Operation(summary = "Get transaction history", description = "Retrieves all transactions for a user")
   @ApiResponses({
           @ApiResponse(responseCode = "200", description = "List of transactions"),
-          @ApiResponse(responseCode = "404", description = "User not found")
   })
   public List<TransactionResponse> getTransaction(@PathVariable("username") String username) {
     return transactionService.getTransactionsByUsername(username).stream()

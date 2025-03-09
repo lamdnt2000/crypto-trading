@@ -33,7 +33,6 @@ public class TradingPairController {
   @Operation(summary = "Get latest best price", description = "Fetches the latest aggregated price for a trading pair")
   @ApiResponses({
           @ApiResponse(responseCode = "200", description = "Latest price"),
-          @ApiResponse(responseCode = "404", description = "Price or pair not found")
   })
   public TradingPairDTO getTradingPair(@PathVariable("id") Long id) {
     return tradingPairMapper.toDTO(tradingPairService.getById(id));

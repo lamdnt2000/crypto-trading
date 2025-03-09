@@ -27,7 +27,6 @@ public class AccountController {
   @Operation(summary = "Get crypto wallet balances", description = "Lists cryptocurrency wallet balances for a user")
   @ApiResponses({
           @ApiResponse(responseCode = "200", description = "List of crypto wallets"),
-          @ApiResponse(responseCode = "404", description = "Account not found")
   })
   public AccountDTO getAccountWallets(@PathVariable("username") String username) {
     return accountService
