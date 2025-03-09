@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(name = "huobiClient")
 public interface HuobiHttpClient {
-    @GetMapping(
-            value = "market/tickers",
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    HuobiTickerResponse getTickers();
+  @GetMapping(value = "market/tickers", produces = MediaType.APPLICATION_JSON_VALUE)
+  HuobiTickerResponse getTickers();
 }

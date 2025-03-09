@@ -1,15 +1,14 @@
 package com.lamdnt.cryptotrading.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 public class BinanceTickerResponse implements Serializable {
-    private String symbol;
-    private BigDecimal bidPrice;
-    private BigDecimal askPrice;
+  private String symbol;
+  private BigDecimal bidPrice;
+  private BigDecimal askPrice;
 }

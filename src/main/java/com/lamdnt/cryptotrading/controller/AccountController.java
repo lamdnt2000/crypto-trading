@@ -13,13 +13,14 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @AllArgsConstructor
 public class AccountController {
-    private final AccountService accountService;
-    private final AccountMapper accountMapper;
+  private final AccountService accountService;
+  private final AccountMapper accountMapper;
 
-    @GetMapping("accounts/{username}/wallets")
-    public AccountDTO getAccountWallets(@PathVariable("username") String username) {
-        return accountService.findByUsernameWithWallets(username)
-                .map(accountMapper::toDTO)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found"));
-    }
+  @GetMapping("accounts/{username}/wallets")
+  public AccountDTO getAccountWallets(@PathVariable("username") String username) {
+    return accountService
+        .findByUsernameWithWallets(username)
+        .map(accountMapper::toDTO)
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found"));
+  }
 }

@@ -52,6 +52,7 @@ CREATE TABLE trading_pair (
 CREATE TABLE transaction (
         id BIGINT AUTO_INCREMENT PRIMARY KEY,
         account_id BIGINT NOT NULL,
+        tx_id UUID NOT NULL,
         type VARCHAR(10) NOT NULL CHECK (type IN ('ASK', 'BID')),
         trading_pair_id BIGINT NOT NULL,
         price DECIMAL(18, 8) NOT NULL,

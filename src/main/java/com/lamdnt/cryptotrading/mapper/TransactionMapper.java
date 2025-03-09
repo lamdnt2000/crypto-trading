@@ -6,10 +6,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface TransactionMapper {
-    TransactionMapper INSTANCE = Mappers.getMapper(TransactionMapper.class);
+  TransactionMapper INSTANCE = Mappers.getMapper(TransactionMapper.class);
 
-    @Mapping(target = "symbol", source = "tradingPair.symbol")
-    TransactionResponse toTransactionResponse(Transaction transaction);
+  @Mapping(target = "symbol", source = "tradingPair.symbol")
+  TransactionResponse toTransactionResponse(Transaction transaction);
 }

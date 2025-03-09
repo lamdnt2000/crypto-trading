@@ -10,17 +10,17 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @Table(name = "currency")
 @NoArgsConstructor
-public class Currency extends Auditing<Long>{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Currency extends Auditing<Long> {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(name = "name")
-    @Enumerated(EnumType.STRING)
-    private CurrencyType name;
+  @Column(name = "name")
+  @Enumerated(EnumType.STRING)
+  private CurrencyType name;
 
-    @Override
-    public Long getId() {
-        return id;
-    }
+  @Override
+  public Long getId() {
+    return id;
+  }
 }

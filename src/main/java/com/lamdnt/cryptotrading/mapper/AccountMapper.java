@@ -5,9 +5,9 @@ import com.lamdnt.cryptotrading.model.AccountDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface AccountMapper {
-    AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
+  AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
 
-    AccountDTO toDTO(Account account);
+  AccountDTO toDTO(Account account);
 }

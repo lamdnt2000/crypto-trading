@@ -1,14 +1,13 @@
 package com.lamdnt.cryptotrading.mapper;
 
-
 import com.lamdnt.cryptotrading.entity.TradingPair;
 import com.lamdnt.cryptotrading.model.TradingPairDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface TradingPairMapper {
-    TradingPairMapper INSTANCE = Mappers.getMapper(TradingPairMapper.class);
+  TradingPairMapper INSTANCE = Mappers.getMapper(TradingPairMapper.class);
 
-    TradingPairDTO toDTO(TradingPair tradingPair);
+  TradingPairDTO toDTO(TradingPair tradingPair);
 }

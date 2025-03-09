@@ -6,27 +6,28 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public enum TransactionType {
-    BID("BID"),
-    ASK("ASK");
+  BID("BID"),
+  ASK("ASK");
 
-    private final String value;
+  private final String value;
 
-    private static final Map<String, TransactionType> VALUE_MAP = Arrays.stream(TransactionType.values())
-            .collect(Collectors.toMap(TransactionType::getValue, Function.identity()));
+  private static final Map<String, TransactionType> VALUE_MAP =
+      Arrays.stream(TransactionType.values())
+          .collect(Collectors.toMap(TransactionType::getValue, Function.identity()));
 
-    TransactionType(String value) {
-        this.value = value;
+  TransactionType(String value) {
+    this.value = value;
+  }
+
+  public String getValue() {
+    return value;
+  }
+
+  public static TransactionType fromValue(String value) {
+    TransactionType currencyType = VALUE_MAP.get(value);
+    if (currencyType == null) {
+      throw new IllegalArgumentException("Invalid TransactionType: " + value);
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    public static TransactionType fromValue(String value) {
-        TransactionType currencyType = VALUE_MAP.get(value);
-        if (currencyType == null) {
-            throw new IllegalArgumentException("Invalid TransactionType: " + value);
-        }
-        return currencyType;
-    }
+    return currencyType;
+  }
 }

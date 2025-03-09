@@ -9,11 +9,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JacksonConfiguration {
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper().registerModule(new JavaTimeModule())
-                .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-                .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-                .disable(DeserializationFeature.UNWRAP_ROOT_VALUE);
-    }
+  @Bean
+  public ObjectMapper objectMapper() {
+    return new ObjectMapper()
+        .registerModule(new JavaTimeModule())
+        .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .disable(DeserializationFeature.UNWRAP_ROOT_VALUE);
+  }
 }
