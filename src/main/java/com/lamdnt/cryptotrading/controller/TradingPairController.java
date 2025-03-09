@@ -6,6 +6,7 @@ import com.lamdnt.cryptotrading.service.TradingPairService;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,5 +18,10 @@ public class TradingPairController {
   @GetMapping("/market/trading-pairs")
   public List<TradingPairDTO> getTradingPairs() {
     return tradingPairService.getAll().stream().map(tradingPairMapper::toDTO).toList();
+  }
+
+  @GetMapping("/market/trading-pairs/{id}")
+  public TradingPairDTO getTradingPair(@PathVariable("id") Long id) {
+    return tradingPairMapper.toDTO(tradingPairService.getById(id));
   }
 }

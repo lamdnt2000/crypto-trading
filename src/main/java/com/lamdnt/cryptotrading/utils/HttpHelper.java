@@ -13,7 +13,7 @@ public class HttpHelper {
 
   public String buildParam(List<String> params) {
     try {
-      return new ObjectMapper().writeValueAsString(params);
+      return objectMapper.writeValueAsString(params);
     } catch (JsonProcessingException e) {
       throw new RuntimeException(e);
     }
