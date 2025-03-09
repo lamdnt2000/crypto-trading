@@ -2,7 +2,6 @@ package com.lamdnt.cryptotrading.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

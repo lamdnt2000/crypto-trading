@@ -1,7 +1,6 @@
 package com.lamdnt.cryptotrading.entity;
 
 import java.io.Serializable;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

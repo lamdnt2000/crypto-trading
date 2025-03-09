@@ -24,9 +24,11 @@ public class AccountController {
   private final AccountMapper accountMapper;
 
   @GetMapping("accounts/{username}/wallets")
-  @Operation(summary = "Get crypto wallet balances", description = "Lists cryptocurrency wallet balances for a user")
+  @Operation(
+      summary = "Get crypto wallet balances",
+      description = "Lists cryptocurrency wallet balances for a user")
   @ApiResponses({
-          @ApiResponse(responseCode = "200", description = "List of crypto wallets"),
+    @ApiResponse(responseCode = "200", description = "List of crypto wallets"),
   })
   public AccountDTO getAccountWallets(@PathVariable("username") String username) {
     return accountService

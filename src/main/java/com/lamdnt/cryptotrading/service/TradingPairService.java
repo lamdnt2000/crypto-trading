@@ -3,8 +3,6 @@ package com.lamdnt.cryptotrading.service;
 import com.lamdnt.cryptotrading.entity.TradingPair;
 import com.lamdnt.cryptotrading.repository.TradingPairRepository;
 import java.util.List;
-import java.util.Optional;
-
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +16,9 @@ public class TradingPairService {
   }
 
   public TradingPair getBySymbol(String symbol) {
-    return tradingPairRepository.findBySymbol(symbol).orElseThrow(() -> new RuntimeException("Trading pair not found"));
+    return tradingPairRepository
+        .findBySymbol(symbol)
+        .orElseThrow(() -> new RuntimeException("Trading pair not found"));
   }
 
   public void update(TradingPair tradingPair) {
