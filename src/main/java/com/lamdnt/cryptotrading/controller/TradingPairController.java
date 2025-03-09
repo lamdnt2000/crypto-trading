@@ -29,12 +29,12 @@ public class TradingPairController {
     return tradingPairService.getAll().stream().map(tradingPairMapper::toDTO).toList();
   }
 
-  @GetMapping("/market/trading-pairs/{id}")
-  @Operation(summary = "Get latest best price", description = "Fetches the latest aggregated price for a trading pair")
+  @GetMapping("/market/trading-pairs/{symbol}")
+  @Operation(summary = "Get latest best price for symbol", description = "Fetches the latest aggregated price for a trading pair")
   @ApiResponses({
           @ApiResponse(responseCode = "200", description = "Latest price"),
   })
-  public TradingPairDTO getTradingPair(@PathVariable("id") Long id) {
-    return tradingPairMapper.toDTO(tradingPairService.getById(id));
+  public TradingPairDTO getTradingPair(@PathVariable("symbol") String symbol) {
+    return tradingPairMapper.toDTO(tradingPairService.getBySymbol(symbol));
   }
 }

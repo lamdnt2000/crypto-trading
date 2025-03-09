@@ -17,8 +17,8 @@ public class TradingPairService {
     return tradingPairRepository.findAll();
   }
 
-  public TradingPair getById(Long id) {
-    return tradingPairRepository.findById(id).orElseThrow(() -> new RuntimeException("Trading pair not found"));
+  public TradingPair getBySymbol(String symbol) {
+    return tradingPairRepository.findBySymbol(symbol).orElseThrow(() -> new RuntimeException("Trading pair not found"));
   }
 
   public void update(TradingPair tradingPair) {
